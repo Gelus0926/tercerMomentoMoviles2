@@ -1,13 +1,10 @@
 import React from 'react'
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from "@expo/vector-icons"
-import Home from '../Screen/Home';
+import { Ionicons,FontAwesome } from "@expo/vector-icons"
 import Cuentas from '../Screen/Vendedor';
 import Movimientos from '../Screen/Ventas'
 
-const principalColor = 'red'
-const subColor = '#FFFF'
 const styles = StyleSheet.create({
     IconStyle: {
       fontSize: 22,
@@ -24,41 +21,22 @@ const Tab = createBottomTabNavigator()
 export default function NavigationBottomStack(){
   return(
     <Tab.Navigator
-      initialRouteName = 'Home'
+      initialRouteName = 'Cuentas'
       screenOptions = {{
-        headerShown: false
-      }}
-      tabBarOptions={{
-        activeTintColor: "white",
-        activeBackgroundColor: `${subColor}`,
-        inactiveTintColor: "#FFF",
-        inactiveBackgroundColor: `${principalColor}`
+        headerShown: false,
+        tabBarActiveTintColor: "white",
+        tabBarActiveBackgroundColor: "#7503B6",
+        tabBarInactiveTintColor: "white",
+        tabBarInactiveBackgroundColor: "#A36BC3"
       }}>
-        
-      <Tab.Screen
-        style = {{color: 'black'}}
-        name = 'Home'
-        component = {Home}
-        options = {{
-          tabBarStyle: { display: 'none' },
-          title: 'Inicio', tabBarIcon: ({color, size}) => (
-            <Ionicons 
-              name = 'home' 
-              style = {styles.IconStyle} 
-              color = {color} 
-              size = {size}
-            />
-          )
-        }}
-      />
 
       <Tab.Screen
         name = 'Cuentas'
         component = {Cuentas}
         options = {{
           title: 'Vendedor', tabBarIcon: ({color, size}) => (
-            <Ionicons 
-              name = 'swap-horizontal' 
+            <FontAwesome 
+              name = 'user-circle' 
               style = {styles.IconStyle} 
               color = {color} 
               size = {size}
@@ -72,8 +50,8 @@ export default function NavigationBottomStack(){
         component = {Movimientos}
         options = {{
           title: 'Ventas', tabBarIcon: ({color, size}) => (
-            <Ionicons 
-              name='hourglass' 
+            <FontAwesome 
+              name='usd' 
               style={styles.IconStyle} 
               color={color} 
               size={size}

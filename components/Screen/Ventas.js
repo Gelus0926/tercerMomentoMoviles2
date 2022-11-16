@@ -11,7 +11,7 @@ const estilos = StyleSheet.create({
             fontWeight: '600'
         },
         inputs: {
-            marginTop:90,
+            marginTop:70,
             color: `black`,
             width: '25',
             textAlign: 'center',
@@ -19,10 +19,11 @@ const estilos = StyleSheet.create({
             fontSize: 16
         },
         Touchable: {
-            backgroundColor: 'black',
+            backgroundColor: '#C03AEE',
             width: '270px',
             marginTop: '20px',
             padding: '5px',
+            margin: 'auto',
             textAlign: 'center',
             marginBottom: '10px'
 
@@ -84,9 +85,9 @@ export default function Ventas({route}) {
                         )}
                         name = "idvendedor"
                     />
-                    {errors.idvendedor?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Este Campo es obligatorio</Text>}
-                    {errors.idvendedor?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Minimo 10 numeros</Text>}
-                    {errors.idvendedor?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Campo solo numerico</Text>}
+                    {errors.idvendedor?.type == 'required' && <Text style = {{fontSize: 12, color: 'red',marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.idvendedor?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red',marginLeft: '35%'}}>Minimo 10 numeros</Text>}
+                    {errors.idvendedor?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red',marginLeft: '35%'}}>Campo solo numerico</Text>}
 
                     <Controller
                         control = {control}
@@ -105,8 +106,8 @@ export default function Ventas({route}) {
                         )}
                         name = "zona"
                     />
-                    {errors.zona?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Este Campo es obligatorio</Text>}
-                    {errors.zona?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Este campo solo permite letras</Text>}
+                    {errors.zona?.type == 'required' && <Text style = {{fontSize: 12, color: 'red',marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.zona?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red',marginLeft: '35%'}}>Este campo solo permite letras</Text>}
 
                     <Controller
                         control={control}
@@ -126,16 +127,15 @@ export default function Ventas({route}) {
                         )}
                         name="fecha" //Estado a validar
                     />
-                    {errors.fecha?.type == "required" && <Text style={{ color: 'red' }}>La fecha digitada es incorrecta</Text>}
-                    {errors.fecha?.type == "pattern" && <Text style={{ color: 'red' }}>El formato para la fecha es: aa/mm/dd</Text>}
+                    {errors.fecha?.type == "required" && <Text style={{ color: 'red',marginLeft: '30%'}}>Este Campo es obligatorio</Text>}
+                    {errors.fecha?.type == "pattern" && <Text style={{ color: 'red',marginLeft: '35%'}}>El formato para la fecha es: aa/mm/dd</Text>}
 
                     <Controller
                         control={control}
                         rules={{
                         required: true,
                         pattern: /^[0-9]+$/,
-                        max: 100000000,
-                        min: 1000000
+                        min: 2000000
                         }}
                         render={({ field: { onChange, onBlur, value } }) => (
                         <TextInput
@@ -148,15 +148,14 @@ export default function Ventas({route}) {
                         )}
                         name="valorVenta" //Estado a validar
                     />
-                    {errors.valorVenta?.type == "required" && <Text style={{ color: 'red' }}>Este Campo es obligatorio</Text>}
-                    {errors.valorVenta?.type == "pattern" && <Text style={{ color: 'red' }}>Este campo solo es numerico</Text>}
-                    {errors.valorVenta?.type == "max" && <Text style={{ color: 'red' }}>El limite del salario son 10000000</Text>}
-                    {errors.valorVenta?.type == "min" && <Text style={{ color: 'red' }}>El salario no puede ser menor a 1000000</Text>}
+                    {errors.valorVenta?.type == "required" && <Text style={{ color: 'red',marginLeft: '30%'}}>Este Campo es obligatorio</Text>}
+                    {errors.valorVenta?.type == "pattern" && <Text style={{ color: 'red',marginLeft: '35%'}}>Este campo solo es numerico</Text>}
+                    {errors.valorVenta?.type == "min" && <Text style={{ color: 'red',marginLeft: '20 %'}}>El salario no puede ser menor a 2000000</Text>}
 
 
                     <TouchableOpacity style = {estilos.Touchable} onPress = {handleSubmit(onSubmit)}>
                         <Text style = {{
-                            color: 'red',
+                            color: '#FFF',
                             fontWeight: 'bold',
                             borderRadius: 20,
                             padding: 10

@@ -11,7 +11,7 @@ const estilos = StyleSheet.create({
             fontWeight: '600'
         },
         inputs: {
-            marginTop:90,
+            marginTop:70,
             color: `black`,
             width: '25',
             textAlign: 'center',
@@ -19,10 +19,11 @@ const estilos = StyleSheet.create({
             fontSize: 16
         },
         Touchable: {
-            backgroundColor: 'black',
+            backgroundColor: '#C03AEE',
             width: '270px',
             marginTop: '20px',
             padding: '5px',
+            margin: 'auto',
             textAlign: 'center',
             marginBottom: '10px'
 
@@ -83,9 +84,9 @@ export default function Vendedor({route}) {
                         )}
                         name = "idvendedor"
                     />
-                    {errors.idvendedor?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Este Campo es obligatorio</Text>}
-                    {errors.idvendedor?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Minimo 10 numeros</Text>}
-                    {errors.idvendedor?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Campo solo numerico</Text>}
+                    {errors.idvendedor?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.idvendedor?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '35%'}}>Minimo 10 numeros</Text>}
+                    {errors.idvendedor?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '35%'}}>Campo solo numerico</Text>}
 
                     <Controller
                         control = {control}
@@ -106,10 +107,10 @@ export default function Vendedor({route}) {
                         )}
                         name = "nombre"
                     />
-                    {errors.nombre?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Este Campo es obligatorio</Text>}
-                    {errors.nombre?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Campo solo permite texto</Text>}
-                    {errors.nombre?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Minimo 10 caracteres</Text>}
-                    {errors.nombre?.type == 'maxLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15}}>Maximo 10 caracteres</Text>}
+                    {errors.nombre?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15,marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.nombre?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15,marginLeft: '35%'}}>Campo solo permite texto</Text>}
+                    {errors.nombre?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15,marginLeft: '35%'}}>Minimo 10 caracteres</Text>}
+                    {errors.nombre?.type == 'maxLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 15,marginLeft: '35%'}}>Maximo 10 caracteres</Text>}
 
                     <Controller
                         control = {control}
@@ -128,16 +129,14 @@ export default function Vendedor({route}) {
                         )}
                         name = "correo"
                     />
-                    {errors.correo?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Este Campo es obligatorio</Text>}
-                    {errors.correo?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Solo letras</Text>}
+                    {errors.correo?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.correo?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '45%'}}>Solo letras</Text>}
 
                     <Controller
                         control = {control}
                         rules = {{
                             required: true,
                             pattern: /^[0-9]+$/,
-                            min: 1000000,
-                            max: 10000000,
                         }}
                         render = {({field: {onChange, onBlur, value}}) => (
                             <TextInput
@@ -150,14 +149,12 @@ export default function Vendedor({route}) {
                         )}
                         name = "totalcomision"
                     />
-                    {errors.totalcomision?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Este Campo es obligatorio</Text>}
-                    {errors.totalcomision?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>Este campo solo permite numeros</Text>}
-                    {errors.totalcomision?.type == 'minLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>El minimo a enviar es de 1.000.000</Text>}
-                    {errors.totalcomision?.type == 'maxLength' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5}}>El maximo a enviar es de 10.000.000</Text>}
+                    {errors.totalcomision?.type == 'required' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5, marginLeft: '35%'}}>Este Campo es obligatorio</Text>}
+                    {errors.totalcomision?.type == 'pattern' && <Text style = {{fontSize: 12, color: 'red', marginBottom: 5,marginLeft: '30%'}}>Este campo solo permite numeros</Text>}
 
                     <TouchableOpacity style = {estilos.Touchable} onPress = {handleSubmit(onSubmit)}>
                         <Text style = {{
-                            color: 'red',
+                            color:'#FFF',
                             fontWeight: 'bold',
                             borderRadius: 20,
                             padding: 10
